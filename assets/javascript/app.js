@@ -15,7 +15,7 @@
 
 // --------- Starting array for buttons
 
-var gifArray = ["Fry", "Bender",];
+var gifArray = ["Lisa", "Marge", "Homer", "Bart"];
 
 // When the document loads
 window.onload = function () {
@@ -35,7 +35,7 @@ window.onload = function () {
 
         // Set value of buttons
         gifButton.val(gifArray[i]);
-        
+
         // Append buttons 
         $("#buttons-column").append(gifButton);
     }
@@ -46,7 +46,7 @@ window.onload = function () {
 
 // Onclick capture
 $("#addGif-button").on("click", function () {
-    
+
     // Prevent the submit from refreshing the page
     event.preventDefault();
 
@@ -57,7 +57,7 @@ $("#addGif-button").on("click", function () {
     gifButton.attr("data-gif-button");
 
     // Add class
-    gifButton.addClass("gif-button gif gif-button-color btn btn-success");
+    gifButton.addClass("gif-button gif-button-color btn btn-success");
 
     // console.log($("#input-text").val());
 
@@ -66,7 +66,7 @@ $("#addGif-button").on("click", function () {
 
     // Set value of buttons
     gifButton.val($("#input-text").val());
-    
+
     // Append to rest of the buttons
     $("#buttons-column").append(gifButton);
 
@@ -82,7 +82,7 @@ $("#addGif-button").on("click", function () {
 
 
 
-// --------------- WHEN USER CLICKS A GIF ------------------ //
+// --------------- WHEN USER CLICKS A GIF-BUTTON ------------------ //
 
 // On click function
 $(document.body).on("click", ".gif-button", function () {
@@ -101,7 +101,7 @@ $(document.body).on("click", ".gif-button", function () {
     var searchGif = $(this).val();
 
     // URL for query
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8&q=futurama%20+%20" + searchGif + "&limit=10&offset=0&rating=PG-13&lang=en";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8&q=The%20Simpsons%20+%20" + searchGif + "&limit=10&offset=0&rating=PG-13&lang=en";
 
     // AJAX call
     $.ajax({
@@ -123,7 +123,15 @@ $(document.body).on("click", ".gif-button", function () {
 
                 // Create an image tag to hold the json property
                 var gifImage = $("<img>");
+
+                // Add a class to the image
+                gifImage.addClass("gif");
+
+                // Add attributes to get the source
                 gifImage.attr("src", ajaxResponse.data[i].images.original_still.url);
+
+                // Add a data state for the animation
+                gifImage.attr("data-state", "still")
 
                 // Create a p tag to hold the rating
                 var gifRating = $("<p>");
@@ -133,6 +141,38 @@ $(document.body).on("click", ".gif-button", function () {
                 $("#gif-column").append(gifImage);
                 $("#gif-column").append(gifRating);
             }
+
+
+            // --------------- WHEN USER CLICKS A GIF ------------------ //
+
+            $(document.body).on("click", ".gif", function () {
+                console.log("giflcick");
+
+
+                // Make a variable named state and then store the image's data-state into it
+                var state = $(this).attr("data-state");
+                console.log(state);
+
+                // If the state is still
+                if (state === "still") {
+
+                    // Set the source to the animated key
+                    $(this).attr("src", ajaxResponse.data[i].images.original.url);
+
+                    // Set the data-state to animated
+                    $(this).attr("data-state", "animate");
+
+                // Otherwise if it's already amimated
+                } else {
+
+                    // Set the source to the still
+                    $(this).attr("src", ajaxResponse.data[i].images.original_still.url);
+
+                    // Set the data-state to still
+                    $(this).attr("data-state", "still");
+                }
+                console.log(i)
+            })
         });
 })
 
