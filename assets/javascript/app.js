@@ -12,31 +12,35 @@
 
 // Creating the buttons:
 
-var gifArray = ["Fry",];
-console.log(gifArray[0]);
+var gifArray = ["Fry", "Bender",];
 
 // When the document loads
 window.onload = function () {
-    // Create button type 
-    var gifButton = $("<button>");
-    // Add an attribute
-    gifButton.attr("data-gif-button");
-    // Add class
-    gifButton.addClass("gif-button gif gif-button-color btn btn-success");
-    // Set text of buttons
-    gifButton.text(gifArray[0]);
-    // Set value of buttons
-    gifButton.val(gifArray[0]);
-    // Append buttons 
-    $("#buttons-column").append(gifButton);
+
+    for (i = 0; i < gifArray.length; i++) {
+        // Create button type 
+        var gifButton = $("<button>");
+        // Add an attribute
+        gifButton.attr("data-gif-button");
+        // Add class
+        gifButton.addClass("gif-button gif gif-button-color btn btn-success");
+        // Set text of buttons
+        gifButton.text(gifArray[i]);
+        // Set value of buttons
+        gifButton.val(gifArray[i]);
+        // Append buttons 
+        $("#buttons-column").append(gifButton);
+    }
+
 }
 
 // On click function
 $(document.body).on("click", ".gif-button", function () {
     console.log("click!");
+    console.log($(this).val());
 
     // First clear out the field if it's got stuff
-
+    $("#gif-column").empty();
 
     // ----------------AJAX----------------------- //
 
@@ -44,7 +48,7 @@ $(document.body).on("click", ".gif-button", function () {
     event.preventDefault();
 
     // We'll get this term from the html, volcano is an example
-    var searchGif = $(".gif-button").val();
+    var searchGif = $(this).val();
 
     // URL for query
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8&q=futurama%20+%20" + searchGif + "&limit=10&offset=0&rating=G&lang=en";
@@ -58,17 +62,26 @@ $(document.body).on("click", ".gif-button", function () {
         // AJAX function
         .then(function (ajaxResponse) {
             console.log(queryURL);
-            console.log(ajaxResponse);
+
 
 
             // 1) 10 static gifs
-
+            console.log(ajaxResponse.data[0].images.original_still.url);
 
             // 2) Their ratings which we display 
+            console.log(ajaxResponse.data[0].rating);
 
+            // Create an image tag to hold the json property
+            var gifImage = $("<img>");
+            gifImage.attr("src", ajaxResponse.data[0].images.original_still.url);
+
+            // Create a p tag to hold the rating
+            var gifRating = $("<p>");
+            gifRating.text("Rating: " + JSON.stringify(ajaxResponse.data[0].rating));
 
             // Populate the container with all that
-
+            $("#gif-column").append(gifImage);
+            $("#gif-column").append(gifRating);
 
         });
 
