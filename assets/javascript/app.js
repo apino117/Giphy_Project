@@ -1,6 +1,5 @@
-// This is the guery url for giphy with the API key. In this example it's for "cat" with a limit of one and a rating of g.
-// https://api.giphy.com/v1/gifs/search?q=cat&limit=1&rating=g&api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8
-
+// This is the guery url for giphy with the API key. In this example it's for "futurama + fry" with a limit of 10 and a rating of G.
+// https://api.giphy.com/v1/gifs/search?api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8&q=futurama + fry&limit=10&offset=0&rating=G&lang=en
 
 // 1) Make a button with a gif
 // 2) Complete the ajax portion for that button
@@ -17,7 +16,6 @@ var gifArray = ["Fry",];
 console.log(gifArray[0]);
 
 // When the document loads
-
 window.onload = function () {
     // Create button type 
     var gifButton = $("<button>");
@@ -27,9 +25,63 @@ window.onload = function () {
     gifButton.addClass("gif-button gif gif-button-color btn btn-success");
     // Set text of buttons
     gifButton.text(gifArray[0]);
+    // Set value of buttons
+    gifButton.val(gifArray[0]);
     // Append buttons 
     $("#buttons-column").append(gifButton);
 }
+
+// On click function
+$(document.body).on("click", ".gif-button", function () {
+    console.log("click!");
+
+    // First clear out the field if it's got stuff
+
+
+    // ----------------AJAX----------------------- //
+
+    // Prevent the submit from refreshing the page
+    event.preventDefault();
+
+    // We'll get this term from the html, volcano is an example
+    var searchGif = $(".gif-button").val();
+
+    // URL for query
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8&q=futurama%20+%20" + searchGif + "&limit=10&offset=0&rating=G&lang=en";
+
+    // AJAX call
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+
+        // AJAX function
+        .then(function (ajaxResponse) {
+            console.log(queryURL);
+            console.log(ajaxResponse);
+
+
+            // 1) 10 static gifs
+
+
+            // 2) Their ratings which we display 
+
+
+            // Populate the container with all that
+
+
+        });
+
+
+
+
+
+
+
+
+
+})
+
 
 
 
