@@ -90,9 +90,6 @@ $(document.body).on("click", ".gif-button", function () {
 
     // ----------------AJAX----------------------- //
 
-    // Prevent the submit from refreshing the page
-    event.preventDefault();
-
     // We'll get this term from the html, volcano is an example
     var searchGif = $(this).val();
 
@@ -125,7 +122,6 @@ $(document.body).on("click", ".gif-button", function () {
 
                 // Add a unique id
                 gifImage.data("gifNumber", gifCount)
-                
 
                 // Add attributes to get the source
                 gifImage.attr("src", ajaxResponse.data[i].images.original_still.url);
@@ -143,27 +139,20 @@ $(document.body).on("click", ".gif-button", function () {
 
                 // Tick the gifcount
                 gifCount++;
-
-                // console.log(gifImage.data("gifNumber"));
-            
             }
 
-
+            
             // --------------- WHEN USER CLICKS A GIF ------------------ //
 
 
             $(document.body).on("click", ".gif", function () {
-                console.log("giflcick");
 
 
                 // Make a variable named state and then store the image's data-state into it
                 var state = $(this).attr("data-state");
-                console.log(state);
 
                 // If the state is still
                 if (state === "still") {
-
-                    console.log($(this).data("gifNumber"));
 
                     // Set the source to the animated key
                     $(this).attr("src", ajaxResponse.data[$(this).data("gifNumber")].images.original.url);
@@ -180,12 +169,9 @@ $(document.body).on("click", ".gif-button", function () {
                     // Set the data-state to still
                     $(this).attr("data-state", "still");
                 }
-                console.log(i)
             })
-
-
-
         });
+
 })
 
 
