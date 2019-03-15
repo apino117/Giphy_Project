@@ -51,7 +51,7 @@ $(document.body).on("click", ".gif-button", function () {
     var searchGif = $(this).val();
 
     // URL for query
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8&q=futurama%20+%20" + searchGif + "&limit=10&offset=0&rating=G&lang=en";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Q6wuNS9yXqx9RCJVlHTGwHvkcJXhobE8&q=futurama%20+%20" + searchGif + "&limit=10&offset=0&rating=PG-13&lang=en";
 
     // AJAX call
     $.ajax({
@@ -61,38 +61,29 @@ $(document.body).on("click", ".gif-button", function () {
 
         // AJAX function
         .then(function (ajaxResponse) {
-            console.log(queryURL);
 
+            for (i = 0; i < 9; i++) {
+                console.log(queryURL);
 
+                // 1) 10 static gifs
+                console.log(ajaxResponse.data[i].images.original_still.url);
 
-            // 1) 10 static gifs
-            console.log(ajaxResponse.data[0].images.original_still.url);
+                // 2) Their ratings which we display 
+                console.log(ajaxResponse.data[i].rating);
 
-            // 2) Their ratings which we display 
-            console.log(ajaxResponse.data[0].rating);
+                // Create an image tag to hold the json property
+                var gifImage = $("<img>");
+                gifImage.attr("src", ajaxResponse.data[i].images.original_still.url);
 
-            // Create an image tag to hold the json property
-            var gifImage = $("<img>");
-            gifImage.attr("src", ajaxResponse.data[0].images.original_still.url);
+                // Create a p tag to hold the rating
+                var gifRating = $("<p>");
+                gifRating.text("Rating: " + JSON.stringify(ajaxResponse.data[i].rating));
 
-            // Create a p tag to hold the rating
-            var gifRating = $("<p>");
-            gifRating.text("Rating: " + JSON.stringify(ajaxResponse.data[0].rating));
-
-            // Populate the container with all that
-            $("#gif-column").append(gifImage);
-            $("#gif-column").append(gifRating);
-
+                // Populate the container with all that
+                $("#gif-column").append(gifImage);
+                $("#gif-column").append(gifRating);
+            }
         });
-
-
-
-
-
-
-
-
-
 })
 
 
