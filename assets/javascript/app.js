@@ -10,7 +10,10 @@
 // 7) On click swap animated state for still state
 
 
-// Creating the buttons:
+// ----------------- ALL ABOUT THE BUTTONS ---------------- //
+
+
+// --------- Starting array for buttons
 
 var gifArray = ["Fry", "Bender",];
 
@@ -20,19 +23,66 @@ window.onload = function () {
     for (i = 0; i < gifArray.length; i++) {
         // Create button type 
         var gifButton = $("<button>");
+
         // Add an attribute
         gifButton.attr("data-gif-button");
+
         // Add class
         gifButton.addClass("gif-button gif gif-button-color btn btn-success");
+
         // Set text of buttons
         gifButton.text(gifArray[i]);
+
         // Set value of buttons
         gifButton.val(gifArray[i]);
+        
         // Append buttons 
         $("#buttons-column").append(gifButton);
     }
-
 }
+
+
+// ------------ User submits new button --------- //
+
+// Onclick capture
+$("#addGif-button").on("click", function () {
+    
+    // Prevent the submit from refreshing the page
+    event.preventDefault();
+
+    // Create button type 
+    var gifButton = $("<button>");
+
+    // Add an attribute
+    gifButton.attr("data-gif-button");
+
+    // Add class
+    gifButton.addClass("gif-button gif gif-button-color btn btn-success");
+
+    // console.log($("#input-text").val());
+
+    // Set text of buttons
+    gifButton.text($("#input-text").val());
+
+    // Set value of buttons
+    gifButton.val($("#input-text").val());
+    
+    // Append to rest of the buttons
+    $("#buttons-column").append(gifButton);
+
+    // Clear text-box when done
+    $("#input-text").val("");
+
+})
+
+
+
+
+
+
+
+
+// --------------- WHEN USER CLICKS A GIF ------------------ //
 
 // On click function
 $(document.body).on("click", ".gif-button", function () {
