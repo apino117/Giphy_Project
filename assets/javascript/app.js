@@ -125,6 +125,8 @@ $(document.body).on("click", ".gif-button", function () {
 
                 // Add attributes to get the source
                 gifImage.attr("src", ajaxResponse.data[i].images.original_still.url);
+                gifImage.attr("data-still", ajaxResponse.data[i].images.original_still.url);
+                gifImage.attr("data-animate", ajaxResponse.data[i].images.original.url);
 
                 // Add a data state for the animation
                 gifImage.attr("data-state", "still")
@@ -154,8 +156,11 @@ $(document.body).on("click", ".gif-button", function () {
                 // If the state is still
                 if (state === "still") {
 
+                    // Variable to capture value of data-animate
+                    var dataAnimate = $(this).attr("data-animate");
+
                     // Set the source to the animated key
-                    $(this).attr("src", ajaxResponse.data[$(this).data("gifNumber")].images.original.url);
+                    $(this).attr("src", dataAnimate);
 
                     // Set the data-state to animated
                     $(this).attr("data-state", "animate");
@@ -163,8 +168,11 @@ $(document.body).on("click", ".gif-button", function () {
                     // Otherwise if it's already amimated
                 } else {
 
+                    // Variable to capture value of data-still
+                    var dataStill = $(this).attr("data-still");
+
                     // Set the source to the still
-                    $(this).attr("src", ajaxResponse.data[$(this).data("gifNumber")].images.original_still.url);
+                    $(this).attr("src", dataStill);
 
                     // Set the data-state to still
                     $(this).attr("data-state", "still");
@@ -174,6 +182,10 @@ $(document.body).on("click", ".gif-button", function () {
 
 })
 
+
+
+// I spent so long figuring this out I dont want to just delete it
+// ajaxResponse.data[$(this).data("gifNumber")].images.original_still.url
 
 
 
