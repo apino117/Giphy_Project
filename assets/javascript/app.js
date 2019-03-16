@@ -82,8 +82,8 @@ $("#addGif-button").on("click", function () {
 
 // On click function
 $(document.body).on("click", ".gif-button", function () {
-    console.log("click!");
-    console.log($(this).val());
+    // console.log("click!");
+    // console.log($(this).val());
 
     // First clear out the field if it's got stuff
     $("#gif-column").empty();
@@ -106,13 +106,13 @@ $(document.body).on("click", ".gif-button", function () {
         .then(function (ajaxResponse) {
 
             for (i = 0; i < 10; i++) {
-                console.log(queryURL);
+                // console.log(queryURL);
 
-                // 1) 10 static gifs
-                console.log(ajaxResponse.data[i].images.original_still.url);
+                // // 1) 10 static gifs
+                // console.log(ajaxResponse.data[i].images.original_still.url);
 
-                // 2) Their ratings which we display 
-                console.log(ajaxResponse.data[i].rating);
+                // // 2) Their ratings which we display 
+                // console.log(ajaxResponse.data[i].rating);
 
                 // Create an image tag to hold the json property
                 var gifImage = $("<img>");
@@ -120,8 +120,8 @@ $(document.body).on("click", ".gif-button", function () {
                 // Add a class to the image
                 gifImage.addClass("gif");
 
-                // Add a unique id
-                gifImage.data("gifNumber", gifCount)
+                // // Add a unique id
+                // gifImage.data("gifNumber", gifCount)
 
                 // Add attributes to get the source
                 gifImage.attr("src", ajaxResponse.data[i].images.original_still.url);
@@ -139,49 +139,49 @@ $(document.body).on("click", ".gif-button", function () {
                 $("#gif-column").append(gifImage);
                 $("#gif-column").append(gifRating);
 
-                // Tick the gifcount
-                gifCount++;
+                // // Tick the gifcount
+                // gifCount++;
             }
 
-            
-            // --------------- WHEN USER CLICKS A GIF ------------------ //
-
-
-            $(document.body).on("click", ".gif", function () {
-
-
-                // Make a variable named state and then store the image's data-state into it
-                var state = $(this).attr("data-state");
-
-                // If the state is still
-                if (state === "still") {
-
-                    // Variable to capture value of data-animate
-                    var dataAnimate = $(this).attr("data-animate");
-
-                    // Set the source to the animated key
-                    $(this).attr("src", dataAnimate);
-
-                    // Set the data-state to animated
-                    $(this).attr("data-state", "animate");
-
-                    // Otherwise if it's already amimated
-                } else {
-
-                    // Variable to capture value of data-still
-                    var dataStill = $(this).attr("data-still");
-
-                    // Set the source to the still
-                    $(this).attr("src", dataStill);
-
-                    // Set the data-state to still
-                    $(this).attr("data-state", "still");
-                }
-            })
         });
 
 })
 
+// --------------- WHEN USER CLICKS A GIF ------------------ //
+
+
+$(document.body).on("click", ".gif", function () {
+
+
+    // Make a variable named state and then store the image's data-state into it
+    var state = $(this).attr("data-state");
+    console.log(state);
+
+    // If the state is still
+    if (state === "still") {
+
+        // Variable to capture value of data-animate
+        var dataAnimate = $(this).attr("data-animate");
+
+        // Set the data-state to animated
+        $(this).attr("data-state", "animate");
+
+        // Set the source to the animated key
+        $(this).attr("src", dataAnimate);
+
+        // Otherwise if it's already amimated
+    } else {
+
+        // Variable to capture value of data-still
+        var dataStill = $(this).attr("data-still");
+
+        // Set the source to the still
+        $(this).attr("src", dataStill);
+
+        // Set the data-state to still
+        $(this).attr("data-state", "still");
+    }
+})
 
 
 // I spent so long figuring this out I dont want to just delete it
