@@ -2,7 +2,7 @@
 
 # 'The Simpsons' Giphy Page
 
-Welcome to 'The Simpsons' Giphy Page a hopefully-not-legally-vulnerable page for some of your 'Simpsons' gifs! 
+Welcome to 'The Simpsons' Giphy Page - a hopefully-not-legally-vulnerable page for some of your 'Simpsons' gifs! 
 
 The 'Simpsons' Giphy page has ratings, so some content may be PG-13 adjacent, but usually if that's the case the kids wont get the joke.  
 
