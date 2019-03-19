@@ -1,5 +1,14 @@
 /* Body / General */
 
+body {
+     /* Setting Background Image */
+     background-image: url("../images/cartoon_sky.jpg");
+     /* Full height */
+     height: 100%;
+     /* Center and scale the image nicely */
+     background-repeat: no-repeat;
+     background-size: cover;
+}
 * {
     font-family: 'Margarine', cursive;
     font-family: 'Baloo Chettan', cursive;
@@ -9,6 +18,7 @@
 }
 
 #content-container {
+    margin-top: 25px;
     background-color: #fbca07;
     border-radius: 25px;
     padding: 25px;
