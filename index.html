@@ -6,48 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy Project</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <!-- Container for the buttons to be laid out and for the search -->
-    <div class="container" id="buttonsearch-container">
-        <!-- Search Field -->
-        <div class="row" id="search-row">
-            <!-- Input Form -->
-            <form>
-                <span id="addGif-span">Add your own: <input id="input-text" type="text"><input id="addGif-button"
-                        value="Add Gif" type="submit"></span>
-            </form>
+    <!-- Container for the two subcontainers -->
+    <div class="container" id="content-container">
+        <div class="row" id="title-row">
+            <h1>It's the Giphy Game!
+            </h1>
         </div>
-        <!-- Buttons -->
-        <div class="row" id="buttons-row">
-            <div class="col-12" id="buttons-column">
+        <div class="row" id="content-row">
+            <!-- Container for the actual Gifs -->
+            <div class="col-6" id="gif-column">
+                <div class="row" id="gif-row">
+                    <div class="col-12" id="gif-column">
+                    </div>
+                </div>
+            </div>
+            <!-- Container for the buttons to be laid out and for the search -->
+            <div class="col-6" id="buttonsearch-column">
+                <!-- Search Field -->
+                <div class="row" id="search-row">
+                    <!-- Input Form -->
+                    <form>
+                        <span id="addGif-span">Add your own: <input id="input-text" type="text"><input
+                                class="btn btn-warning" id="addGif-button" value="Add Gif" type="submit"></span>
+                    </form>
+                </div>
+                <!-- Buttons -->
+                <div class="row" id="buttons-row">
+                    <div class="col-12" id="buttons-column">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Container for the actual Gifs -->
-    <div class="container" id="gif-container">
-        <div class="row" id="gif-row">
-            <div class="col-12" id="gif-column">
-            </div>
-        </div>
+    <!-- Footer -->
+    <div class="row" id="footer-row">
+        <footer class="footer">
+            <small class="text-muted">
+                <div class="row">
+                    <!-- Copyright Text -->
+                    <div class="col-9">
+                        <p id="copyright-text">
+                            Copyright © AP Incorporated, 2019 - "The 'Giphy Game' Trivia Game Background Music" is
+                            an
+                            Original Composition
+                            by DJ
+                            Watcha
+                        </p>
+                    </div>
+                    <!-- Music -->
+                    <div class="col-3" id="audio-wrapper">
+                        <audio id="bgMusic" controls>
+                            <source src="assets/.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </small>
+        </footer>
     </div>
 
 
 
 
-
-
-
-
-
-
-
-
+    <!-- SCRIPT TAGS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

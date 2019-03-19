@@ -1,0 +1,45 @@
+/* Body / General */
+
+#content-container {
+    background-color: beige;
+}
+
+
+/* Columns */
+.col-6 {
+    align-self: flex-start;
+}
+
+#gif-column, #buttons-column {
+    text-align: center;
+}
+
+/* Rows */
+.row {
+    justify-content: center;
+}
+
+/* Buttons */
+.btn-warning {
+    color: #fde239;
+    background-color: #4aa1cc;
+    border-color: #b68889;
+    margin: 1px;
+}
+
+/* Footer */
+
+.footer {
+    position: relative;
+}
+
+#audio-wrapper {
+    padding-right: 340px;
+}
+
+#copyright-text {
+    color: #fff8f8;
+    text-shadow: 2px 2px #00000085;
+    margin-left: 10px;
+    margin-top: 20px;
+}

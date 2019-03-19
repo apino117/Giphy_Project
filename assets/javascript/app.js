@@ -12,8 +12,8 @@
 
 // ----------------- ALL ABOUT THE BUTTONS ---------------- //
 
-// Initialize gifcount at 0 to start
-var gifCount = 0;
+// // Initialize gifcount at 0 to start
+// var gifCount = 0;
 
 // --------- Starting array for buttons
 
@@ -30,7 +30,7 @@ window.onload = function () {
         gifButton.attr("data-gif-button");
 
         // Add class
-        gifButton.addClass("gif-button gif-button-color btn btn-success");
+        gifButton.addClass("gif-button gif-button-color btn btn-warning");
 
         // Set text of buttons
         gifButton.text(gifArray[i]);
@@ -59,7 +59,7 @@ $("#addGif-button").on("click", function () {
     gifButton.attr("data-gif-button");
 
     // Add class
-    gifButton.addClass("gif-button gif-button-color btn btn-success");
+    gifButton.addClass("gif-button gif-button-color btn btn-warning");
 
     // Set text of buttons
     gifButton.text($("#input-text").val());
