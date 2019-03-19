@@ -1,11 +1,35 @@
 /* Body / General */
 
+* {
+    font-family: 'Margarine', cursive;
+    font-family: 'Baloo Chettan', cursive;
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-family: 'Sniglet', cursive;
+    font-family: 'Lilita One', cursive;
+}
+
 #content-container {
-    background-color: beige;
+    background-color: #fbca07;
     border-radius: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
     padding: 25px;
+}
+
+#input-text {
+    border: solid;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+/* Fonts */
+
+#title-font {
+    font-family: "Lilita One";
+    color: #bf0203;
+    font-size: 64px;
+}
+
+p, h2, .gif-button, #addGif-span, #addGif-button {
+    font-family: "sniglet";
 }
 
 /* Gifs and Images */
@@ -14,7 +38,8 @@
     border: solid;
     border-radius: 5px;
     margin: 5px;
-    height: 250px;
+    max-height: 250px;
+    height: 100%;
     width: 250px;
     padding: 0px;
 }
@@ -22,9 +47,11 @@
 .gif-rating {
     align-self: center;
     transform: rotate(-90deg);
+    font-size: 25px;
 }
 
 /* Columns */
+
 .col-6 {
     align-self: flex-start;
 }
@@ -34,22 +61,40 @@
 }
 
 /* Rows */
+
 .row {
     justify-content: center;
 }
+
 #gif-row {
-    justify-content: stretch;
+    justify-content: space-between;
 }
-#search-row {
+
+#search-row, #buttons-row {
     margin-bottom: 15px;
 }
 
+#title-row {
+    margin-bottom: 15px;
+    align-items: center;
+}
+
 /* Buttons */
+
 .btn-warning {
     color: #fde239;
     background-color: #4aa1cc;
     border-color: #b68889;
     margin: 1px;
+}
+
+.gif-button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#addGif-button {
+    margin-left: 5px;
 }
 
 /* Footer */
@@ -69,6 +114,7 @@
     margin-left: 10px;
     margin-top: 20px;
 }
+
 #copyright-column {
     text-align: center;
 }

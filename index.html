@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Lilita+One|Margarine|Sniglet|ZCOOL+XiaoWei"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -17,17 +20,17 @@
     <!-- Container for the two subcontainers -->
     <div class="container" id="content-container">
         <div class="row" id="title-row">
-            <h1>It's The 'Simpsons' Giphy Page!!!
+            <h1 id="title-font">
+                Welcome to the 'Simpsons' Giphy Page!!!
             </h1>
         </div>
         <div class="row" id="content-row">
-            <!-- Container for the actual Gifs -->
-            <div class="col-9" id="gif-column">
-                <div class="row" id="gif-row">
-                </div>
-            </div>
             <!-- Container for the buttons to be laid out and for the search -->
-            <div class="col-3" id="buttonsearch-column">
+            <div class="col-12" id="buttonsearch-column">
+                <!-- Instructions Row -->
+                <div class="row" id="instructions-row">
+                    <h2>Click a Gif to get Started!</h2>
+                </div>
                 <!-- Search Field -->
                 <div class="row" id="search-row">
                     <!-- Input Form -->
@@ -42,18 +45,24 @@
                     </div>
                 </div>
             </div>
+            <!-- Container for the actual Gifs -->
+            <div class="col-12" id="gif-column">
+                <div class="row" id="gif-row">
+                </div>
+            </div>
         </div>
+        <!-- Footer Paste Here -->
     </div>
-
     <!-- Footer -->
     <div class="row" id="footer-row">
         <footer class="footer">
             <small class="text-muted">
                 <div class="row">
                     <!-- Copyright Text -->
-                    <div class="col-9" id="copyright-column">
+                    <div class="col-10" id="copyright-column">
                         <p id="copyright-text">
-                            Copyright © AP Incorporated, 2019 - "The 'Giphy Page' Background Music" is
+                            Copyright © AP Incorporated, 2019 Some Rights Reserved - "The 'Giphy Page' Background Music"
+                            is
                             an
                             Original Composition
                             by DJ
@@ -61,7 +70,7 @@
                         </p>
                     </div>
                     <!-- Music -->
-                    <div class="col-3" id="audio-column">
+                    <div class="col-2" id="audio-column">
                         <audio id="bgMusic" controls>
                             <!-- <source src="assets/.mp3" type="audio/mpeg"> -->
                         </audio>
@@ -70,6 +79,7 @@
             </small>
         </footer>
     </div>
+
 
 
 

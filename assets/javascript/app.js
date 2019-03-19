@@ -88,6 +88,9 @@ $(document.body).on("click", ".gif-button", function () {
     // First clear out the field if it's got stuff
     $("#gif-row").empty();
 
+    // Hide instructions
+    $("#instructions-row").hide();
+
     // ----------------AJAX----------------------- //
 
     // We'll get this term from the html, volcano is an example
