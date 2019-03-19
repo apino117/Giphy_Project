@@ -86,7 +86,7 @@ $(document.body).on("click", ".gif-button", function () {
     // console.log($(this).val());
 
     // First clear out the field if it's got stuff
-    $("#gif-column").empty();
+    $("#gif-row").empty();
 
     // ----------------AJAX----------------------- //
 
@@ -117,8 +117,9 @@ $(document.body).on("click", ".gif-button", function () {
                 // Create an image tag to hold the json property
                 var gifImage = $("<img>");
 
-                // Add a class to the image
+                // Add classes to the image
                 gifImage.addClass("gif");
+                gifImage.addClass("col-4")
 
                 // // Add a unique id
                 // gifImage.data("gifNumber", gifCount)
@@ -133,11 +134,13 @@ $(document.body).on("click", ".gif-button", function () {
 
                 // Create a p tag to hold the rating
                 var gifRating = $("<p>");
+                gifRating.addClass("gif-rating");
                 gifRating.text("Rating: " + JSON.stringify(ajaxResponse.data[i].rating));
 
                 // Populate the container with all that
-                $("#gif-column").append(gifImage);
-                $("#gif-column").append(gifRating);
+                $("#gif-row").append(gifImage);
+                $("#gif-row").append(gifRating);
+                
 
                 // // Tick the gifcount
                 // gifCount++;
